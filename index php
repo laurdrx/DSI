@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edit this template
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Formulário de ordem do serviço- Bicho chique PetShop</title>
+    
+    </head>
+    <body>
+        <h2>Formulário de ordem do serviço- Bicho chique PetShop</h2>
+        <form method="post" action="userDetails.php">
+            <table>
+                <tr>
+                    <td>Nome do cliente:</td>
+                    <td>
+                        <input type="text" name="nome"
+                               placeholder="Digite o nome do cliente">
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Telefone:</td>
+                    <td>
+                        <input type="text" name="telefone"
+                               placeholder="Digite o telefone do cliente">
+                    </td>
+                    <td></td>
+                </tr>
+                  <tr>
+                       <td>Animal:</td>
+                    <td>
+                        <input type="text" name="animal"
+                               placeholder="Digite o nome do animal">
+                    </td>
+                    <td></td>
+                  </tr>
+                  <td>Serviços:</td>
+
+                  <form>
+                  <input type="checkbox" id="serviços" name="serviços" value="banho e tosa">
+                  <label for=""> banho e tosa </label><br>
+                  <input type="checkbox" id="serviços" name="serviços" value="corte de unhas">
+                  <label for=""> corte de unhas</label><br>
+                  <input type="checkbox" id="serviços" name="serviços" value="limpeza de ouvidos">
+                  <label for=""> limpeza de ouvidos</label><br><br>
+                  <input type="checkbox" id="serviços" name="serviços" value="vacinação">
+                  <label for="">vacinação</label><br><br>
+                  
+       
+                </form>
+                  
+                    <script>////apenas um test
+                    function myFunction() {
+                    var x = document.createElement("INPUT");
+                    x.setAttribute("type", "date");
+                    x.setAttribute("value", "2014-02-09");
+                    document.body.appendChild(x);
+                    }
+        </script>   
+                        <input type="submit" value="Enviar ordens de serviço">
+                   
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+            <?php
+            if ($_GET) {
+                //Imprime tudo que estiver dentro do array.
+                //print_r($_GET);
+                @$Nome = $_GET['nome']
+                @$Telefone = $_GET['telefone'];
+                @$Animal = $_GET['animal'];
+                @$Serviços= $_GET['serviços'];
+               
+                if (empty($nome)|| empty($telefone)
+                        || empty($animal) || empty($serviços)) {
+                    echo('<div class="alert"> Todos os campos são obrigatórios. </div>');
+                }else{
+                    // todos os campos obrigatórios forem preenchidos.
+                
+                    $result = "Nome ".$nome. "<br>Telefone: ".$telefone.
+                            "<br>Telefone: ".$telefone. "<br>Animal: ".$animal.
+                            "<br>Serviço: ".$serviços;
+                            
+                    echo($result);
+                }
+                
+               
+            }
+            ?>
+        </form>
+    </body>
+</html>
