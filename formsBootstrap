@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to edit this template
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Forms Boostrap</title>
+        <!-- adicionar os links -->
+        
+    </head>
+    <body>
+        <div class="container">
+            <form method="post" action="formsBootstrap.php">
+                <div class="row page-header">
+                    <div class="col-sm-12">
+                        <h1>Formulário de ordem do serviço- Bicho chique PetShop</h1> 
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            <label for="nome">Nome do cliente:</label>
+                            <input type="number" class="form-control" id="nome do cliente" 
+                                   placeholder="Insira o nome do cliente"     name="nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Telefone</label>
+                            <input type="text" class="form-control" id="telefone"
+                                   placeholder="Insira o telefone do cliente" name="telefone">
+                        </div>
+                         <div class="form-group">
+                            <label for="animal">animal</label>
+                            <input type="text" class="form-control" id="animal"
+                                   placeholder="Insira o telefone do cliente" name="animal">
+                        </div>
+                        
+                          
+                        
+                        <div class="form-group">
+                            <label>Serviços:</label>
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="serviços[]" value="banho e tosa">banho e tosa</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="serviços[]" value="corte de unhas">corte de unhas</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="serviços[]" value="limpeza de ouvidosI">DSI 3</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Enviar" class="btn btn-primary">
+                            
+                        </div>
+                        <!-- Put your PHP code here -->
+                        <?PHP
+                        if ($_POST) {
+                            //print_r($_POST);
+                            
+                            @$Nome = $_GET['nome']
+                            @$Telefone = $_GET['telefone'];
+                            @$Animal = $_GET['animal'];
+                            @$Serviços= $_GET['serviços'];
+               
+                            
+                            echo('<div class="panel panel-success">
+                                    <div class="panel-heading">Dados informados</div>
+                                    <div class="panel-body">
+                                        <p>'.$nome.'</p>
+                                        <p>'.$telefone.'</p>
+                                        <p>'.$turma.'</p>
+                                        <p>'.$serviço.'</p>
+                                         
+                                    </div>
+                                  </div>');
+                        }
+                        ?>
+                    </div>
+                    <div class="col-sm-4">
+                       <!-- imagem -->
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </body>
+</html>
