@@ -1,5 +1,6 @@
 <?php
-
+//declare <stdlib.h>
+require './ConexaoMysql.php';
 
 /**
  * Description of racasModel
@@ -13,6 +14,8 @@ class racasModel {
     protected $descricao;
     protected $faixaPreco;
     protected $faixaPeso;
+   
+    //metodos acessores e modificadores
     public function getId() {
         return $this->id;
     }
@@ -58,5 +61,24 @@ class racasModel {
     public function __construct() {
         
     }
+    //Métodos especialistas
+    public function loadAll(){
+        
+        //Criar um objeto de conexão
+        $db = new ConexaoMysql();
 
+        //Abrir conexão com banco de dados
+        $db->Conectar();
+
+        //Criar consulta
+        $sql = 'SELECT * FROM racas';
+        //Executar método de consulta
+        $resultList = $db->Consultar($sql);
+       
+        //Desconectar do banco
+        $db->Desconectar();
+        
+        return $resultList;
+        
+    }
 }

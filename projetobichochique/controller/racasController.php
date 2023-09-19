@@ -1,29 +1,18 @@
 <?php
-require_once './model/ConexaoMysql.php';
+require_once './model/racasModel.php';
 
 if($_POST){
     
 }else if($_REQUEST){ 
     
+}else {
+   //selecionar algo no banco de dados
+    loadAll();
 }
 
-/*
- * Carrega uma lista de dados
- */
-function carregarDados(){
-        //Criar um objeto de conexão
-        $db = new ConexaoMysql();
-
-        //Abrir conexão com banco de dados
-        $db->Conectar();
-
-        //Criar consulta
-        $sql = 'SELECT * FROM racas';
-        //Executar método de consulta
-        $resultList = $db->Consultar($sql);
-       
-        //Desconectar do banco
-        $db->Desconectar();
-        
-        return $resultList;
+function loadAll(){
+    //crio um obj do tipo racas
+    $racas = new racasModel();
+    $racasList = $racas->loadAll();
+    return $racasList;
 }
